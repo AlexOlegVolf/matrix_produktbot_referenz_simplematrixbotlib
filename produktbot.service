@@ -1,0 +1,19 @@
+[Unit]
+Description=EEApp Produktbot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=produktbot
+Group=produktbot
+WorkingDirectory=/opt/produktbot
+EnvironmentFile=/etc/produktbot/config.env
+ExecStart=/opt/produktbot/.venv/bin/python /opt/produktbot/bot.py --homeserver ${MATRIX_HOMESERVER} --bot-user ${MATRIX_BOT_USER} --allowed-server ${MATRIX_ALLOWED_SERVER} --webhook-url ${N8N_WEBHOOK_URL} --matrix-token-file /etc/produktbot/matrix-token.secret --webhook-key-file /etc/produktbot/webhook-key.secret
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
