@@ -19,4 +19,4 @@ Gruppenraeume, verschluesselte Raeume und Absender anderer Matrix-Server werden 
 
 `/etc/produktbot/webhook-key.secret` enthaelt ausschliesslich den n8n-Wert fuer `X-Bot-Key`.
 
-Die beiden `.secret`-Dateien gehoeren niemals in GitHub.
+
